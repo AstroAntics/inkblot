@@ -1301,5 +1301,16 @@ ActiveRecord::Schema.define(version: 20190611212339) do
     t.integer "position"
     t.integer "content_sanitizer_version", limit: 2, default: 0, null: false
   end
+  
+  create_table "badges", id :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=dynamic" do |t|
+    t.integer "badge_id" # The ID of the badge
+    t.string "badge_title" # The short title of the badge, up to 64 characters
+    t.text "badge_desc" # The short description of the badge, up to 1028 characters
+    t.string "badge_img" # The badge's image accompanying it
+    t.datetime "created_at" # When the badge was created
+    t.datetime "awarded_at", :null: true # When the badge was awarded to a user (can be null)
+    t.datetime "revoked_at", null: true # When the badge was revoked (can be null)
+    t.boolean "admin_award", default: false, null: false # Is the badge an admin award (i.e. can only be given out by admins?) 
+  end
 
 end

@@ -1311,6 +1311,7 @@ ActiveRecord::Schema.define(version: 20190611212339) do
     t.datetime "awarded_at", :null: true # When the badge was awarded to a user (can be null)
     t.datetime "revoked_at", null: true # When the badge was revoked (can be null)
     t.boolean "admin_award", default: false, null: false # Is the badge an admin award (i.e. can only be given out by admins?) 
+    t.boolean "retired", default: false, null: false # Can the badge be given out again?
   end
 
 end
